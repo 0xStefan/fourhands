@@ -17,6 +17,15 @@ const validA1 = [
 
 const validA2 = ["listing price=EUR 999.98"];
 
+const validA3 = [
+  "something",
+  "listing price=USD 200",
+  "listing url=https://example.com/",
+  "listing price=>HNS 25000",
+  "profile service=com.github 0xstefan",
+  "listing url=https://example.com/somename",
+];
+
 const expectedFull = {
   price: 25000,
   asset: "HNS",
@@ -40,6 +49,8 @@ test("convertion", (t) => {
 
   t.deepEqual(convertToListing(validA1), expectedFull);
   t.deepEqual(convertToListing(validA2), { price: 999.98, asset: "EUR" });
+
+  t.deepEqual(convertToListing(validA3), expectedFull);
 
   t.deepEqual(convertToListing(valid1 + ";invalid=something"), expectedFull);
 });

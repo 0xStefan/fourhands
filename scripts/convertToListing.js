@@ -21,15 +21,27 @@ function convertToListing(input) {
   }
 
   if (Array.isArray(input)) {
-    if (input.length > 2)
-      throw new Error("Provided too many arguments. Max 2 allowed");
+    let priceFound;
+    let urlFound;
+    let priceIndex;
+    let urlIndex;
 
-    if (!input[0].startsWith("listing " + VALID_KEYS[0]))
-      throw new Error("Price attribute missing. Must be first element");
+    input.forEach((el, index) => {
+      if (el.startsWith(VALID_PREFIX + " " + VALID_KEYS[0])) {
+        priceFound = true;
+        priceIndex = index;
+      }
+      if (el.startsWith(VALID_PREFIX + " " + VALID_KEYS[1])) {
+        urlFound = true;
+        urlIndex = index;
+      }
+    });
+
+    if (!priceFound) throw new Error("Price attribute missing");
 
     return (listing = {
-      ...stringToListing(input[0]),
-      ...(input[1] ? stringToListing(input[1]) : undefined),
+      ...stringToListing(input[priceIndex]),
+      ...(urlFound ? stringToListing(input[urlIndex]) : undefined),
     });
   }
 
