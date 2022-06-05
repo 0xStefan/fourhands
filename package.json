@@ -1,0 +1,29 @@
+{
+  "name": "fourhands",
+  "version": "0.1.0",
+  "description": "HIP-10 Helper for Domain Listings via TXT records",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xStefan/fourhands.git"
+  },
+  "keywords": [
+    "handshake",
+    "hip10",
+    "hip-10",
+    "dns"
+  ],
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "0xStefan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0xStefan/fourhands/issues"
+  },
+  "homepage": "https://github.com/0xStefan/fourhands#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^4.3.0"
+  }
+}
