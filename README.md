@@ -37,7 +37,22 @@ fourhands.convertToListing([
 ]);
 ```
 
-#### Output
+### Convert Array with other TXT records to Listing
+
+Last price/url element will be used if more are provided.
+
+```js
+fourhands.convertToListing([
+  "something else",
+  "profile service=com.github 0xstefan",
+  "listing price=USD 1000", // <= will be ignored
+  "listing price=>HNS 250.33", // <= will be used
+  "verification=675rtzfgh-mbnvjhguzio",
+  "listing url=https://example.com/",
+]);
+```
+
+#### Same Output for all Examples above
 
 ```json
 {
