@@ -37,8 +37,6 @@ fourhands.convertToListing([
 ]);
 ```
 
-Array input expects at least the price element.
-
 #### Output
 
 ```json
